@@ -1,26 +1,22 @@
 dist: trusty
 sudo: false
-
 language: node_js
 node_js:
-  - "8"
-
+- '8'
 addons:
   apt:
     sources:
-      - google-chrome
+    - google-chrome
     packages:
-      - google-chrome-stable
-
+    - google-chrome-stable
 cache:
   directories:
-     - ./node_modules
-
+  - "./node_modules"
 install:
-  - npm install
-
+- npm install
 script:
-  - npm run test -- --watch=false --progress=false 
---browsers=ChromeHeadlessCI
-  - npm run e2e -- --protractor-config=./e2e/protractor-ci.conf.js
-
+- npm run test -- --watch=false --progress=false --browsers=ChromeHeadlessCI
+- npm run e2e -- --protractor-config=./e2e/protractor-ci.conf.js
+deploy:
+  api_key:
+    secure: S3/0huNQ0Ld1Q/MoFZ7Q6jUqNW2mR9RjsE9zMNxWOO7iwIordzxDw0s+mgpjGxr8HFadbHjk3oguP78b93OFYR9hPWmJzvMsD9+/UdsIyvRdsWLbujBc5bAKA94WJhg15VeFr164afN7Ka7DX3f4d0TImAI3RVLweIJ8foi/rhV2POxHh/iooJhOhvjTistO7SLcCwtnTJJ85WdP8m00bFwuWf+vnCCrd8gjGE+IMPHaD6RE3VlbhBY0UXai2EWm9G4WNe80CQbb+7duJUeq+WUVfM67mfyXUZrAszRYNTchi8YxNHbTUfnd+yYyzhwduKJJUM0yqBPJlm92tAeC+y/8jecfMfhbBmZt16gr/WlGIrjqB1QXsw3UchxngIggdZLF7krekHp7zXxtXyGGEOqwZUs0HCFh3U9mloaoiv08OiaaXR/KrWp1ktASEYS3GIvSu8o4b5OvSb+j17W793TGo43wWbHaagTOWaMGls4UhYgs/Ul8N9ikgT9EnSGg/kXV21J21YMz83vhZ1eDjj09bha+FqEVSWlhAkrLc/7olL9c71iDHS0j4HqZDuOHO4p+cSvCDLyJmh46MC5ACzfRHjqtdEOR4ZchXb97vGEZyNm4QK1WShpJU8IDDBIbAMypOL30ftRSX6NEZpTI4MteMRhas1lsxNh1IcAPxs8=
