@@ -5,10 +5,12 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test --browsers ChromeHeadless",
+    "test:browser": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "aot": "ng build --aot"
+    "aot": "ng build --aot",
+    "format": "prettier './{src,e2e}/**/*.{ts,js,json,scss,md}' --write"
   },
   "private": true,
   "dependencies": {
@@ -41,9 +43,11 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "prettier": "1.15.3",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
+    "tslint-config-prettier": "^1.17.0",
     "typescript": "~2.9.2"
   }
 }
