@@ -12,14 +12,13 @@ describe('ApiService', () => {
     })
   );
 
-  test('should be created', () => {
+  test('should be created', async () => {
     const service: ApiService = TestBed.get(ApiService);
     expect(service).toBeTruthy();
-    console.log('NJARA');
   });
-  test('should be created,,', () => {
+
+  test('should be created,,', async () => {
     const service: ApiService = TestBed.get(ApiService);
     expect(service).toBeTruthy();
-    console.log(service);
   });
 });
