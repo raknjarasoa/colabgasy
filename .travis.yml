@@ -1,0 +1,27 @@
+dist: trusty
+sudo: false
+language: node_js
+node_js:
+- '8'
+addons:
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
+cache:
+  directories:
+  - "./node_modules"
+install:
+- npm install
+script:
+- npm run test -- --watch=false --progress=false --browsers=ChromeHeadlessCI
+- npm run e2e -- --protractor-config=./e2e/protractor-ci.conf.js
+deploy:
+  provider: heroku
+  api_key:
+    secure: zemrmCioeYCIEXHGV304mpekR2Urgrv7NMyPtRe4eDWgbunyRh1u/W3eOB+fdn5whubJTOs3/vjmQfi97FjPRWVQVOA5WFv0DzTRxEexzreXEis8NZehDl0DKEovOaWHCWU0b2l59RKg3LjZTOS/kjE2pL195J5D6VXYG26y++lMTr2GWuI8DIsmEYfTsfFk2x/RelAPYJjhJdFPSMZUHOITY9wS6haiX3IiPOkKd3quwTheo49g0nA/iXinN/4Kxg1C9Ndw7EHayPLPerCdnq3f/bAmDa4HK0bqFdKT9SQUVhVmIyZ+4zx2UKYPPWGiK9wABkVxJfkJW+aQAXFo5m8QsqzYX43rCwsVQc3/BhUtxttP8e/FDtDZDhPf3UkzIp1RChbTsg/4ngXvRN6f+eYCsx9KnHpat5nY9DgIP/iQDyPCIcBinFByiO/gIF4NM2jnEVsU1H60Ha4vvWvDRB6eir6QqQ2l460qxrIqDMI4IZd87JYRXhFwUYlzGWqDydJP3X3Omj2MDvphe88He9H075PgNKkBnrKafJF9oL2H+OxazuMJX0vo/+i3nqOnxB2r1sM9Rff0q9vKotgp6lzWp0a2iIsnQ0UVXGve8H0AydIBnjr2P9T6xgWgr2pXGWeg5dZQoLCLCIkgPkOfZORP65EGKGFdQxvL86bGoLs=
+  app: colabgasy
+  on:
+    repo: raknjarasoa/colabgasy
+    branch: travis-ci
