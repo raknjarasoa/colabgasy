@@ -16,8 +16,7 @@
     "lint": "ng lint",
     "e2e": "testcafe-live chrome:headless ./e2e/**/*.e2e-spec.ts",
     "e2e:browser": "testcafe-live chrome ./e2e/**/*.e2e-spec.ts",
-    "e2e:ci": "testcafe chrome:headless,firefox:headless ./e2e/**/*.e2e-spec.ts",
-    "e2e:citest": "testcafe chrome:headless,firefox:headless ./e2e/**/*.e2e-spec.ts --app 'yarn start' --app-init-delay 50000",
+    "e2e:ci": "testcafe chrome:headless,firefox:headless ./e2e/**/*.e2e-spec.ts --app 'yarn start' --app-init-delay 50000",
     "format": "prettier './{src,e2e}/**/*.{ts,js,json,scss,md}' --write"
   },
   "private": true,

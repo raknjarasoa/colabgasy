@@ -18,7 +18,6 @@ install:
 script:
 - yarn test:ci
 - yarn build:aot
-- yarn start
 - yarn e2e:ci
 #- xvfb-run yarn e2e:ci
 deploy:
