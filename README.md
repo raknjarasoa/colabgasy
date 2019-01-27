@@ -20,7 +20,7 @@ Run `ng test` to execute the unit tests via [Jest](https://jestjs.io/docs/en/get
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run `ng e2e` to execute the end-to-end tests via [Testcafe](https://devexpress.github.io/testcafe/documentation/getting-started).
 
 ## CI/CD
 

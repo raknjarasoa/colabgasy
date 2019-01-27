@@ -4,6 +4,7 @@ language: node_js
 node_js:
 - '8'
 addons:
+  firefox: latest
   apt:
     sources:
     - google-chrome
@@ -12,13 +13,13 @@ addons:
 cache:
   directories:
   - "./node_modules"
-before_install:
-  - google-chrome-stable --headless --disable-gpu --no-sandbox --remote-debugging-port=9222 http://localhost &  
 install:
-- npm install
+- yarn install
 script:
-- npm run test:ci
-- npm run e2e:ci
+- yarn test:ci
+- yarn build:aot
+- yarn e2e:ci
+#- xvfb-run yarn e2e:ci
 deploy:
   provider: heroku
   api_key:
