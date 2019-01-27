@@ -12,7 +12,7 @@ exports.config = {
       args: ['--headless', '--disable-gpu', '--window-size=800,600', '--no-sandbox']
     }
   },
-  directConnect: true,
+  directConnect: false,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
