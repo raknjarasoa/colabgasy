@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ICountry, ApiService } from './api/api.service';
 import { ISpecification, CompositeSpecification } from './specification';
 
+export interface IFilter {
+  name: string;
+  region: string;
+}
+
 @Component({
   selector: 'cg-root',
   templateUrl: './app.component.html',
@@ -10,6 +15,8 @@ import { ISpecification, CompositeSpecification } from './specification';
 export class AppComponent implements OnInit {
   title = 'colabgasy';
 
+  filter: IFilter;
+
   data: ICountry[];
 
   filtered: ICountry[];
@@ -17,15 +24,16 @@ export class AppComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
+    this.filter = {} as IFilter;
     this.apiService.getData().subscribe((res) => {
       this.data = res;
-      this.applyFilter();
+      this.filtered = this.data;
     });
   }
 
-  applyFilter(): void {
-    const byNameSpec = new NameSpecification('ma');
-    const byRegionSpec = new RegionSpecification('Europe');
+  applyFilter(f: IFilter): void {
+    const byNameSpec = new NameSpecification(f.name);
+    const byRegionSpec = new RegionSpecification(f.region);
     const bytotalPoulationSpec = new PopulationSuperieurSpecification();
     const byRangeDateSpec = new RangeSpecification(1, 2);
 
@@ -48,6 +56,9 @@ class NameSpecification extends CompositeSpecification<ICountry> {
   }
 
   isSatisfiedBy(candidate: ICountry): boolean {
+    if (!this.name) {
+      return true;
+    }
     const regExp = new RegExp(this.name, 'gi');
     return Boolean(candidate.name.match(regExp));
   }

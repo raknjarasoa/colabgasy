@@ -3,11 +3,20 @@
 </h1>
 
 <p>
-  <button type="button" (click)="applyFilter()">Filter</button>
+  <select [(ngModel)]="filter.region">
+    <option value="Europe">Europe</option>
+    <option value="Asia">Asia</option>
+    <option value="Americas">Americas</option>
+  </select>
+  <br>
+  <input type="text" [(ngModel)]="filter.name">
+</p>
+<p>
+  <button type="button" (click)="applyFilter(filter)">Filter</button>
 </p>
 <p>
   Total:
-  <strong>{{ filtered?.length }}</strong>
+  <strong id="total">{{ filtered?.length }}</strong>
 </p>
 <table>
   <thead>
