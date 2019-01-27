@@ -15,7 +15,6 @@
     "test:coverage": "jest --coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "aot": "ng build --aot",
     "format": "prettier './{src,e2e}/**/*.{ts,js,json,scss,md}' --write"
   },
   "private": true,
