@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
+    "dev": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --prod",
     "build:aot": "ng build --aot",
@@ -17,28 +18,33 @@
     "e2e": "testcafe-live chrome:headless ./e2e/**/*.e2e-spec.ts",
     "e2e:browser": "testcafe-live chrome ./e2e/**/*.e2e-spec.ts",
     "e2e:ci": "testcafe chrome:headless,firefox:headless ./e2e/**/*.e2e-spec.ts --app 'yarn start' --app-init-delay 50000",
+    "postinstall": "ng build --aot",
+    "deploy": "git push origin master && git push heroku master",
     "format": "prettier './{src,e2e}/**/*.{ts,js,json,scss,md}' --write"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^6.1.0",
+    "@angular/cli": "~6.2.5",
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",
+    "@angular/compiler-cli": "^6.1.0",
     "@angular/core": "^6.1.0",
     "@angular/forms": "^6.1.0",
     "@angular/http": "^6.1.0",
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "compression": "^1.7.3",
     "core-js": "^2.5.4",
+    "express": "^4.16.4",
     "rxjs": "~6.2.0",
+    "typescript": "~2.9.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-builders/jest": "^7.2.1",
     "@angular-devkit/build-angular": "~0.8.0",
-    "@angular/cli": "~6.2.5",
-    "@angular/compiler-cli": "^6.1.0",
     "@angular/language-service": "^6.1.0",
     "@types/jest-image-snapshot": "^2.4.0",
     "@types/node": "~8.9.4",
@@ -52,7 +58,9 @@
     "testcafe-live": "^0.1.4",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "tslint-config-prettier": "^1.17.0",
-    "typescript": "~2.9.2"
+    "tslint-config-prettier": "^1.17.0"
+  },
+  "engines": {
+    "node" : ">=8.0.0 <11.0.0"
   }
 }
