@@ -15,6 +15,7 @@
     "test:cov": "jest --coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "e2e:ci": "ng e2e -- --protractor-config=./e2e/protractor-ci.conf.js",
     "format": "prettier './{src,e2e}/**/*.{ts,js,json,scss,md}' --write"
   },
   "private": true,
