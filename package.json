@@ -10,9 +10,9 @@
     "karma": "ng test --browsers ChromeHeadless",
     "karma:browser": "ng test",
     "test": "jest",
-    "test:watch": "jest --watch",
+    "test:w": "jest --watch",
     "test:ci": "jest --runInBand",
-    "test:coverage": "jest --coverage",
+    "test:cov": "jest --coverage",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "format": "prettier './{src,e2e}/**/*.{ts,js,json,scss,md}' --write"

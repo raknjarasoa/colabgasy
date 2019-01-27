@@ -61,4 +61,14 @@ describe('Spec', () => {
   test('not true spec should be false', () => {
     expect(trueSpec.not().isSatisfiedBy(null)).toStrictEqual(false);
   });
+
+  // orNot
+  test('false orNot false specs should be true AND other false', () => {
+    expect(falseSpec.orNot(falseSpec).isSatisfiedBy(null)).toStrictEqual(true);
+  });
+
+  // andNot
+  test('true andNot true specs should be false AND other true', () => {
+    expect(trueSpec.andNot(trueSpec).isSatisfiedBy(null)).toStrictEqual(false);
+  });
 });
