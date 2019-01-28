@@ -16,7 +16,7 @@
     "e2e": "testcafe-live chrome:headless ./e2e/**/*.e2e-spec.ts",
     "e2e:browser": "testcafe-live chrome ./e2e/**/*.e2e-spec.ts",
     "e2e:ci": "testcafe chrome:headless,firefox:headless ./e2e/**/*.e2e-spec.ts --app 'yarn serve' --app-init-delay 50000",
-    "postinstall": "ng build --aot",
+    "postinstall": "ng build --prod",
     "deploy": "git push origin master && git push heroku master",
     "format": "prettier './{src,e2e}/**/*.{ts,js,json,scss,md}' --write"
   },
