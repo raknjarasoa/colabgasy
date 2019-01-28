@@ -22,6 +22,9 @@ Run `ng test` to execute the unit tests via [Jest](https://jestjs.io/docs/en/get
 
 Run `ng e2e` to execute the end-to-end tests via [Testcafe](https://devexpress.github.io/testcafe/documentation/getting-started).
 
+## PWA tunnel test with [ngrok](https://dashboard.ngrok.com/get-started)
+Run `ng serve --host 0.0.0.0 --disable-host-check`
+
 ## CI/CD
 
 Build with [Travis](https://travis-ci.com/raknjarasoa/colabgasy).
