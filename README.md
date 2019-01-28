@@ -1,4 +1,16 @@
-# Colabgasy
+<h1 align="center">
+  Colabgasy
+  <br>
+</h1>
+
+<h4 align="center">:muscle: The Front-End :pray: Angular 7 :running: CI/CD :no_good: e2e :metal: guidelines :bomb:</h4>
+
+<p align="center">
+  <a href="https://travis-ci.com/raknjarasoa/colabgasy">
+    <img src="https://travis-ci.com/raknjarasoa/colabgasy.svg?branch=master" alt="Travis-ci">
+  </a>
+</p>
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
 
