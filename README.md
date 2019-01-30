@@ -1,7 +1,13 @@
 <h1 align="center">
+<br>
+  <img src="https://raw.githubusercontent.com/raknjarasoa/colabgasy/master/src/assets/icons/icon-192x192.png" alt="Colabgasy" width="192">
+  <br>
+    <br>
   Colabgasy
   <br>
 </h1>
+
+<br>
 
 <h4 align="center">:muscle: The Front-End :pray: Angular 7 :running: CI/CD :no_good: e2e :metal: guidelines :bomb:</h4>
 
