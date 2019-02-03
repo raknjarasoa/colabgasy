@@ -24,12 +24,12 @@
     <img src="https://codecov.io/gh/raknjarasoa/colabgasy/branch/master/graph/badge.svg" alt="Codecov"/>
   </a>
       
-  <a href="https://colabsgasy.herokuapp.com" target="_blank" rel="noopener noreferrer">
+  <a href="http://raknjarasoa.com/colabgasy" target="_blank" rel="noopener noreferrer">
     <img src="https://github.com/storybooks/press/raw/master/badges/storybook.svg?sanitize=true" alt="Storybook" style="max-width:100%;">
   </a>
 </p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
 ## Development server
 
