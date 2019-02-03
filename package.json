@@ -22,7 +22,7 @@
     "format": "prettier './{src,e2e}/**/*.{ts,js,json,scss,md}' --write",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o dist/colabgasy-storybook-static",
-    "coveralls": "coveralls"
+    "cov": "codecov -f coverage/*.json"
   },
   "private": true,
   "dependencies": {
@@ -67,8 +67,8 @@
     "@types/storybook__addon-links": "^3.3.3",
     "@types/storybook__addon-notes": "^4.0.1",
     "babel-loader": "^8.0.5",
+    "codecov": "^3.1.0",
     "codelyzer": "~4.3.0",
-    "coveralls": "^3.0.2",
     "jest": "^23.6.0",
     "jest-image-snapshot": "^2.7.0",
     "jest-preset-angular": "^6.0.2",

@@ -20,8 +20,6 @@ script:
 - yarn test:ci
 - yarn test:cov
 - yarn e2e:ci
-after_script:
-- cat ./coverage/lcov.info | yarn coveralls
 deploy:
   provider: heroku
   api_key:

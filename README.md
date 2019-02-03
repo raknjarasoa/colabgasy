@@ -16,10 +16,6 @@
     <img src="https://travis-ci.com/raknjarasoa/colabgasy.svg?branch=master" alt="Travis-ci">
   </a>
 
-  <a href='https://coveralls.io/github/raknjarasoa/colabgasy?branch=master' target="_blank" rel="noopener noreferrer">
-    <img src='https://coveralls.io/repos/github/raknjarasoa/colabgasy/badge.svg?branch=master' alt='Coverage Status' />
-  </a>
-
   <a href="https://colabsgasy.herokuapp.com" target="_blank" rel="noopener noreferrer">
     <img src="https://github.com/storybooks/press/raw/master/badges/storybook.svg?sanitize=true" alt="Storybook" style="max-width:100%;">
   </a>
