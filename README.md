@@ -16,6 +16,10 @@
     <img src="https://travis-ci.com/raknjarasoa/colabgasy.svg?branch=master" alt="Travis-ci">
   </a>
 
+<a href="https://codecov.io/gh/raknjarasoa/colabgasy" target="_blank" rel="noopener noreferrer">
+  <img src="https://codecov.io/gh/raknjarasoa/colabgasy/branch/master/graph/badge.svg" />
+</a>
+
   <a href="https://colabsgasy.herokuapp.com" target="_blank" rel="noopener noreferrer">
     <img src="https://github.com/storybooks/press/raw/master/badges/storybook.svg?sanitize=true" alt="Storybook" style="max-width:100%;">
   </a>
