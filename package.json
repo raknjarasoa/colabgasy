@@ -22,7 +22,7 @@
     "format": "prettier './{src,e2e}/**/*.{ts,js,json,scss,md}' --write",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -o dist/colabgasy-storybook-static",
-    "cov": "codecov -f coverage/*.json"
+    "codecov": "codecov -f coverage/*.json"
   },
   "private": true,
   "dependencies": {
