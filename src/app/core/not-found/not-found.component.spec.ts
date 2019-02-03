@@ -17,4 +17,8 @@ describe('NotFoundComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
+  test('should render NotFoundComponent ', async () => {
+    expect(component).toBeTruthy();
+  });
 });

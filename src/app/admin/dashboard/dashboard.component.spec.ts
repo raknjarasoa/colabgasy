@@ -17,4 +17,8 @@ describe('DashboardComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
+  test('should render DashboardComponent ', async () => {
+    expect(component).toBeTruthy();
+  });
 });

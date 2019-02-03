@@ -16,17 +16,21 @@ export class AuthenticationService {
     refresh_token: 'refreshtokencode',
     exp: new Date(new Date().getDate() + 1),
     access_token: {
-      username: 'user',
-      roles: ['Admin', 'RegisteredUser', 'Super User']
+      username: '',
+      roles: []
     }
   };
 
-  tokenKey = 'a6smm_utoken';
+  TOKEN_KEY = 'colab_gasy_utoken';
 
   constructor(private router: Router) {}
 
   login(username: string, password: string) {
-    // TODO Njarasoa
+    this.token.access_token = {
+      roles: ['Admin', 'RegisteredUser', 'Super User'],
+      username
+    };
+
     this.setToken(this.token);
     this.router.navigate(['admin', 'dashboard']);
   }
@@ -36,20 +40,24 @@ export class AuthenticationService {
     this.router.navigate(['login']);
   }
 
-  getToken() {
-    return JSON.parse(localStorage.getItem(this.tokenKey));
+  getToken(): IToken {
+    return JSON.parse(localStorage.getItem(this.TOKEN_KEY));
   }
 
   setToken(token: IToken) {
-    localStorage.setItem(this.tokenKey, JSON.stringify(token));
+    localStorage.setItem(this.TOKEN_KEY, JSON.stringify(token));
   }
 
-  getAccessToken() {
-    return JSON.parse(localStorage.getItem(this.tokenKey))['access_token'];
+  getAccessToken(): any {
+    if (this.getToken()) {
+      return this.getToken().access_token;
+    } else {
+      return null;
+    }
   }
 
   isAuthenticated() {
-    const token = localStorage.getItem(this.tokenKey);
+    const token = localStorage.getItem(this.TOKEN_KEY);
 
     if (token) {
       return true;
@@ -64,6 +72,6 @@ export class AuthenticationService {
   }
 
   removeToken() {
-    localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this.TOKEN_KEY);
   }
 }

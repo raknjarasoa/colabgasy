@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -12,7 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
-  imports: [CommonModule, HttpClientModule, SharedModule, CoreRoutingModule],
+  imports: [CommonModule, SharedModule, CoreRoutingModule],
   declarations: [LoginComponent, HeaderComponent, NotFoundComponent],
   exports: [RouterModule, HeaderComponent],
   providers: [AuthenticationService, AuthenticationGuard]

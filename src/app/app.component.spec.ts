@@ -1,16 +1,16 @@
-import { HttpClientModule } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 describe('AppComponent', async () => {
   let fixture: ComponentFixture<AppComponent>;
   beforeEach(async(async () => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule, FormsModule, SharedModule],
-      declarations: [AppComponent]
+      imports: [CoreModule],
+      declarations: [AppComponent],
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     }).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
@@ -20,17 +20,5 @@ describe('AppComponent', async () => {
   test('should create the app', async () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  test(`should have as title 'colabgasy'`, async () => {
-    const app: AppComponent = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('colabgasy');
-  });
-
-  test('should render title in a h1 tag', async () => {
-    const compiled: HTMLElement = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain(
-      'Welcome to colabgasy!'
-    );
   });
 });

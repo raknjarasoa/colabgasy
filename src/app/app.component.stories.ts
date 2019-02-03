@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { linkTo } from '@storybook/addon-links';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { Button } from '@storybook/angular/demo';
@@ -9,7 +8,7 @@ import { SharedModule } from './shared/shared.module';
 storiesOf('App Component', module)
   .addDecorator(
     moduleMetadata({
-      imports: [HttpClientModule, SharedModule],
+      imports: [SharedModule],
       schemas: [],
       declarations: [AppComponent],
       providers: []

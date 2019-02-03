@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
-import { ApiService, ICountry } from 'src/app/api/api.service';
+import {
+  CountryService,
+  ICountry
+} from 'src/app/shared/services/country.service';
 import { CompositeSpecification, ISpecification } from 'src/app/specification';
 
 export interface IFilter {
@@ -22,12 +25,12 @@ export class CountryListComponent implements OnInit {
 
   loading = false;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private countryService: CountryService) {}
 
   ngOnInit(): void {
     this.loading = true;
     this.filter = {} as IFilter;
-    this.apiService
+    this.countryService
       .getData()
       .pipe(finalize(() => (this.loading = false)))
       .subscribe((res) => {

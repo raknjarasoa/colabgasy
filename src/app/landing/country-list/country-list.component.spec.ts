@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CountryListComponent } from './country-list.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('CountryListComponent', () => {
   let component: CountryListComponent;
@@ -8,6 +9,7 @@ describe('CountryListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [SharedModule],
       declarations: [CountryListComponent]
     }).compileComponents();
   }));
@@ -18,7 +20,7 @@ describe('CountryListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  test('should create CountryListComponent', async () => {
     expect(component).toBeTruthy();
   });
 });

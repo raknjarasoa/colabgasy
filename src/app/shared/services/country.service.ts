@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
+import { SharedModule } from '../shared.module';
 
 export interface ICountry {
   name?: string;
@@ -10,9 +12,9 @@ export interface ICountry {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: SharedModule
 })
-export class ApiService {
+export class CountryService {
   constructor(private http: HttpClient) {}
 
   getData(): Observable<ICountry[]> {
