@@ -1,33 +1,34 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 
+import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
+
 describe('AppComponent', async () => {
+  let fixture: ComponentFixture<AppComponent>;
   beforeEach(async(async () => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpClientModule, FormsModule],
+      imports: [HttpClientModule, FormsModule, SharedModule],
       declarations: [AppComponent]
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
   }));
 
   test('should create the app', async () => {
-    const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
 
   test(`should have as title 'colabgasy'`, async () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
+    const app: AppComponent = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('colabgasy');
   });
 
   test('should render title in a h1 tag', async () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
+    const compiled: HTMLElement = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain(
       'Welcome to colabgasy!'
     );
