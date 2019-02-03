@@ -18,6 +18,6 @@
       "es2017",
       "dom"
     ],
-    "types": ["jest"]
+    "types": ["jest", "node"]
   }
 }
