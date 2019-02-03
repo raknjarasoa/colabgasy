@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  <img src="https://raw.githubusercontent.com/raknjarasoa/colabgasy/master/src/assets/icons/icon-192x192.png" alt="Colabgasy" width="192">
+  <img src="https://raw.githubusercontent.com/raknjarasoa/colabgasy/master/src/assets/icons/icon-128x128.png" alt="Colabgasy" width="128">
   <br>
     <br>
   Colabgasy
@@ -12,11 +12,18 @@
 <h4 align="center">:muscle: The Front-End :pray: Angular 7 :running: CI/CD :no_good: e2e :metal: guidelines :bomb:</h4>
 
 <p align="center">
-  <a href="https://travis-ci.com/raknjarasoa/colabgasy">
+  <a href="https://travis-ci.com/raknjarasoa/colabgasy" target="_blank" rel="noopener noreferrer">
     <img src="https://travis-ci.com/raknjarasoa/colabgasy.svg?branch=master" alt="Travis-ci">
   </a>
-</p>
 
+<a href="https://codecov.io/gh/raknjarasoa/colabgasy" target="_blank" rel="noopener noreferrer">
+  <img src="https://codecov.io/gh/raknjarasoa/colabgasy/branch/master/graph/badge.svg" />
+</a>
+
+  <a href="https://colabsgasy.herokuapp.com" target="_blank" rel="noopener noreferrer">
+    <img src="https://github.com/storybooks/press/raw/master/badges/storybook.svg?sanitize=true" alt="Storybook" style="max-width:100%;">
+  </a>
+</p>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
 
@@ -41,6 +48,7 @@ Run `ng test` to execute the unit tests via [Jest](https://jestjs.io/docs/en/get
 Run `ng e2e` to execute the end-to-end tests via [Testcafe](https://devexpress.github.io/testcafe/documentation/getting-started).
 
 ## PWA tunnel test with [ngrok](https://dashboard.ngrok.com/get-started)
+
 Run `ng serve --host 0.0.0.0 --disable-host-check`
 
 ## CI/CD

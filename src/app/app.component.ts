@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { finalize } from 'rxjs/operators';
 import { ICountry, ApiService } from './api/api.service';
 import { ISpecification, CompositeSpecification } from './specification';
-
 export interface IFilter {
   name: string;
   region: string;
@@ -21,14 +21,20 @@ export class AppComponent implements OnInit {
 
   filtered: ICountry[];
 
+  loading = false;
+
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
+    this.loading = true;
     this.filter = {} as IFilter;
-    this.apiService.getData().subscribe((res) => {
-      this.data = res;
-      this.filtered = this.data;
-    });
+    this.apiService
+      .getData()
+      .pipe(finalize(() => (this.loading = false)))
+      .subscribe((res) => {
+        this.data = res;
+        this.filtered = this.data;
+      });
   }
 
   applyFilter(f: IFilter): void {

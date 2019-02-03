@@ -18,8 +18,9 @@ install:
 script:
 - yarn build:aot
 - yarn test:ci
+- yarn test:cov
+- yarn codecov
 - yarn e2e:ci
-#- xvfb-run yarn e2e:ci
 deploy:
   provider: heroku
   api_key:
