@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { finalize } from 'rxjs/operators';
-import { ICountry, ApiService } from './api/api.service';
-import { ISpecification, CompositeSpecification } from './specification';
-export interface IFilter {
-  name: string;
-  region: string;
-}
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'cg-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+    <cg-header></cg-header>
+    <router-outlet></router-outlet>
+  `
 })
 export class AppComponent {}
