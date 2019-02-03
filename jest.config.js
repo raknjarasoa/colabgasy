@@ -66,7 +66,7 @@ module.exports = {
   roots: ['src'],
 
   // The path to a module that runs some code to configure or set up the testing framework before each test
-  setupTestFrameworkScriptFile: '<rootDir>/src/setupJest.ts'
+  setupTestFrameworkScriptFile: '<rootDir>/src/setupJest.ts',
 
   // The test environment that will be used for testing
   // testEnvironment: "jest-environment-jsdom",
@@ -91,4 +91,5 @@ module.exports = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+  coveragePathIgnorePatterns: ["jestGlobalMocks.ts"]
 };

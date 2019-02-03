@@ -8,6 +8,7 @@ export interface ICompositeSpecification<T> extends ISpecification<T> {
   not(): ICompositeSpecification<T>;
 }
 
+/* tslint:disable:no-use-before-declare */
 export abstract class CompositeSpecification<T>
   implements ICompositeSpecification<T> {
   abstract isSatisfiedBy(candidate: T): boolean;
@@ -24,6 +25,7 @@ export abstract class CompositeSpecification<T>
     return new NotSpecification<T>(this);
   }
 }
+/* tslint:enable:no-use-before-declare */
 
 export class NotSpecification<T> extends CompositeSpecification<T> {
   constructor(private other: ICompositeSpecification<T>) {

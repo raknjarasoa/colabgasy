@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
+
+import { ISpecification } from 'src/app/shared/helpers/specification';
 import {
   CountryService,
   ICountry
 } from 'src/app/shared/services/country.service';
-import { CompositeSpecification, ISpecification } from 'src/app/specification';
+import { NameRule, PopulationRule, RangeRule, RegionRule } from './rules';
 
 export interface IFilter {
   name: string;
@@ -40,10 +42,10 @@ export class CountryListComponent implements OnInit {
   }
 
   applyFilter(f: IFilter): void {
-    const byNameSpec = new NameSpecification(f.name);
-    const byRegionSpec = new RegionSpecification(f.region);
-    const bytotalPoulationSpec = new PopulationSuperieurSpecification();
-    const byRangeDateSpec = new RangeSpecification(1, 2);
+    const byNameSpec = new NameRule(f.name);
+    const byRegionSpec = new RegionRule(f.region);
+    const bytotalPoulationSpec = new PopulationRule();
+    const byRangeDateSpec = new RangeRule(1, 2);
 
     const filterCriteria = bytotalPoulationSpec
       .not()
@@ -55,49 +57,5 @@ export class CountryListComponent implements OnInit {
 
   process(spec: ISpecification<ICountry>): ICountry[] {
     return this.data.filter((c) => spec.isSatisfiedBy(c));
-  }
-}
-
-class NameSpecification extends CompositeSpecification<ICountry> {
-  constructor(private name: string) {
-    super();
-  }
-
-  isSatisfiedBy(candidate: ICountry): boolean {
-    if (!this.name) {
-      return true;
-    }
-    const regExp = new RegExp(this.name, 'gi');
-    return Boolean(candidate.name.match(regExp));
-  }
-}
-
-class RegionSpecification extends CompositeSpecification<ICountry> {
-  constructor(private region: string) {
-    super();
-  }
-
-  isSatisfiedBy(candidate: ICountry): boolean {
-    return candidate.region === this.region;
-  }
-}
-
-class PopulationSuperieurSpecification extends CompositeSpecification<
-  ICountry
-> {
-  readonly MAX_POPULATION = 10000;
-
-  isSatisfiedBy(candidate: ICountry): boolean {
-    return candidate.population < this.MAX_POPULATION;
-  }
-}
-
-export class RangeSpecification<T> extends CompositeSpecification<T> {
-  constructor(private min: T, private max: T) {
-    super();
-  }
-
-  isSatisfiedBy(candidate: T): boolean {
-    return candidate >= this.min && candidate <= this.max;
   }
 }
