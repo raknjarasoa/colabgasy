@@ -18,8 +18,10 @@ install:
 script:
 - yarn build:aot
 - yarn test:ci
+- yarn test:cov
 - yarn e2e:ci
-#- xvfb-run yarn e2e:ci
+after_script:
+- cat ./coverage/lcov.info | yarn coveralls
 deploy:
   provider: heroku
   api_key:
