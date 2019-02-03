@@ -1,0 +1,39 @@
+
+<p>
+  <select [(ngModel)]="filter.region">
+    <option value="Europe">Europe</option>
+    <option value="Asia">Asia</option>
+    <option value="Americas">Americas</option>
+  </select>
+  <br>
+  <input type="text" [(ngModel)]="filter.name">
+</p>
+<p>
+  <button type="button" (click)="applyFilter(filter)">Filter</button>
+</p>
+<p>
+  Total:
+  <strong id="total">{{ filtered?.length }}</strong>
+</p>
+
+<cg-spinner [loading]="loading"></cg-spinner>
+
+<table>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Capital</td>
+      <td>Population</td>
+      <td>Region</td>
+    </tr>
+
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of filtered">
+      <td>{{ c.name }}</td>
+      <td>{{ c.capital }}</td>
+      <td>{{ c.population }}</td>
+      <td>{{ c.region }}</td>
+    </tr>
+  </tbody>
+</table>
