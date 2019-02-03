@@ -6,10 +6,9 @@ export interface ICompositeSpecification<T> extends ISpecification<T> {
   and(other: ICompositeSpecification<T>): ICompositeSpecification<T>;
   or(other: ICompositeSpecification<T>): ICompositeSpecification<T>;
   not(): ICompositeSpecification<T>;
-  andNot(other: ICompositeSpecification<T>): ICompositeSpecification<T>;
-  orNot(other: ICompositeSpecification<T>): ICompositeSpecification<T>;
 }
 
+/* tslint:disable:no-use-before-declare */
 export abstract class CompositeSpecification<T>
   implements ICompositeSpecification<T> {
   abstract isSatisfiedBy(candidate: T): boolean;
@@ -25,15 +24,8 @@ export abstract class CompositeSpecification<T>
   not(): ICompositeSpecification<T> {
     return new NotSpecification<T>(this);
   }
-
-  andNot(other: ICompositeSpecification<T>): ICompositeSpecification<T> {
-    return new AndNotSpecification<T>(this, other);
-  }
-
-  orNot(other: ICompositeSpecification<T>): ICompositeSpecification<T> {
-    return new OrNotSpecification<T>(this, other);
-  }
 }
+/* tslint:enable:no-use-before-declare */
 
 export class NotSpecification<T> extends CompositeSpecification<T> {
   constructor(private other: ICompositeSpecification<T>) {
@@ -60,12 +52,6 @@ export class AndSpecification<T> extends CompositeSpecification<T> {
   }
 }
 
-export class AndNotSpecification<T> extends AndSpecification<T> {
-  isSatisfiedBy(candidate: T): boolean {
-    return super.isSatisfiedBy(candidate) !== true;
-  }
-}
-
 export class OrSpecification<T> extends CompositeSpecification<T> {
   constructor(
     private left: ICompositeSpecification<T>,
@@ -78,11 +64,5 @@ export class OrSpecification<T> extends CompositeSpecification<T> {
     return (
       this.left.isSatisfiedBy(candidate) || this.right.isSatisfiedBy(candidate)
     );
-  }
-}
-
-export class OrNotSpecification<T> extends OrSpecification<T> {
-  isSatisfiedBy(candidate: T): boolean {
-    return super.isSatisfiedBy(candidate) !== true;
   }
 }

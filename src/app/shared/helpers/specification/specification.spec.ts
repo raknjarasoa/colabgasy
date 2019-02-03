@@ -61,14 +61,4 @@ describe('Spec', async () => {
   test('not true spec should be false', async () => {
     expect(trueSpec.not().isSatisfiedBy(null)).toStrictEqual(false);
   });
-
-  // orNot
-  test('false orNot false specs should be true AND other false', async () => {
-    expect(falseSpec.orNot(falseSpec).isSatisfiedBy(null)).toStrictEqual(true);
-  });
-
-  // andNot
-  test('true andNot true specs should be false AND other true', async () => {
-    expect(trueSpec.andNot(trueSpec).isSatisfiedBy(null)).toStrictEqual(false);
-  });
 });

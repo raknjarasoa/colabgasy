@@ -1,18 +1,17 @@
-import { HttpClientModule } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common';
 import { linkTo } from '@storybook/addon-links';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { Button } from '@storybook/angular/demo';
 
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 storiesOf('App Component', module)
   .addDecorator(
     moduleMetadata({
-      imports: [HttpClientModule, SharedModule],
-      schemas: [],
+      imports: [CoreModule],
       declarations: [AppComponent],
-      providers: []
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }]
     })
   )
   .add('Component with separate template', () => ({

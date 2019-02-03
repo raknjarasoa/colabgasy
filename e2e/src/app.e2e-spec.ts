@@ -1,12 +1,12 @@
 import { Selector } from 'testcafe';
 import { waitForAngular } from 'testcafe-angular-selectors';
 import AppPage from './app.po';
-// import { AppPage } from './app.po';
 
 fixture(`Home page`)
   .page(`http://localhost:4200`)
   .beforeEach(async (t) => {
     await waitForAngular();
+    await t.click(Selector('header > a'));
   });
 
 const regionSelect = Selector('select');
